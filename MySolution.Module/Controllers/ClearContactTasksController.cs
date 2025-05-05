@@ -1,6 +1,8 @@
 ﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
+using DevExpress.ExpressApp.Editors;
 using MySolution.Module.BusinessObjects;
+using System;
 
 namespace MySolution.Module.Controllers
 {
@@ -27,11 +29,19 @@ namespace MySolution.Module.Controllers
             // Unsubscribe from previously subscribed events and release other references and resources.
             base.OnDeactivated();
         }
-
         private void ClearTasksAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             while (((Contact)View.CurrentObject).Tasks.Count > 0) ((Contact)View.CurrentObject).Tasks.Remove(((Contact)View.CurrentObject).Tasks[0]);
             ObjectSpace.SetModified(View.CurrentObject);
+        }
+        private void ClearContactTasksController_Activated(object sender, EventArgs e)
+        {
+            ClearTasksAction.Enabled.SetItemValue("EditMode", ((DetailView)View).ViewEditMode == ViewEditMode.Edit);
+            ((DetailView)View).ViewEditModeChanged += new EventHandler<EventArgs>(ClearContactTasksController_ViewEditModeChanged);
+        }
+        void ClearContactTasksController_ViewEditModeChanged(object sender, EventArgs e)
+        {
+            ClearTasksAction.Enabled.SetItemValue("EditMode", ((DetailView)View).ViewEditMode == ViewEditMode.Edit);
         }
     }
 }

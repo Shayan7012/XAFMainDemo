@@ -45,8 +45,10 @@ namespace MySolution.Module.Controllers
             // ClearContactTasksController
             // 
             this.Actions.Add(this.ClearTasksAction);
+            this.TargetObjectType = typeof(MySolution.Module.BusinessObjects.Contact);
             this.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.Activated += new System.EventHandler(this.ClearContactTasksController_Activated);
 
         }
 
