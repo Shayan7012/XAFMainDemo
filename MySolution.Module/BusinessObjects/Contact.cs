@@ -1,6 +1,5 @@
 ﻿using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
-using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using System;
 
@@ -72,42 +71,6 @@ namespace MySolution.Module.BusinessObjects
         {
             get { return manager; }
             set { SetPropertyValue("Manager", ref manager, value); }
-        }
-    }
-    [DefaultClassOptions]
-    [System.ComponentModel.DefaultProperty("Title")]
-    public class Department : BaseObject
-    {
-        public Department(Session session) : base(session) { }
-        private string title;
-        public string Title
-        {
-            get { return title; }
-            set { SetPropertyValue("Title", ref title, value); }
-        }
-        private string office;
-        public string Office
-        {
-            get { return office; }
-            set { SetPropertyValue("Office", ref office, value); }
-        }
-        [Association("Department-Contacts")]
-        public XPCollection<Contact> Contacts
-        {
-            get { return GetCollection<Contact>("Contacts"); }
-        }
-    }
-    [DefaultClassOptions]
-    [System.ComponentModel.DefaultProperty("Title")]
-    public class Position : BaseObject
-    {
-        public Position(Session session) : base(session) { }
-        private string title;
-        [RuleRequiredField(DefaultContexts.Save)]
-        public string Title
-        {
-            get { return title; }
-            set { SetPropertyValue("Title", ref title, value); }
         }
     }
     public enum TitleOfCourtesy { Dr, Miss, Mr, Mrs, Ms };

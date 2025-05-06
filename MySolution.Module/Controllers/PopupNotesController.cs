@@ -30,13 +30,11 @@ namespace MySolution.Module.Controllers
             // Unsubscribe from previously subscribed events and release other references and resources.
             base.OnDeactivated();
         }
-
         private void ShowNotesAction_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs args)
         {
             IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(Note));
             args.View = Application.CreateListView(objectSpace, typeof(Note), true);
         }
-
         private void ShowNotesAction_Execute(object sender, PopupWindowShowActionExecuteEventArgs args)
         {
             DemoTask task = (DemoTask)View.CurrentObject;
