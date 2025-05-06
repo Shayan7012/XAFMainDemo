@@ -2,6 +2,7 @@
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using System;
 
 namespace MySolution.Module.BusinessObjects
 {
@@ -25,6 +26,12 @@ namespace MySolution.Module.BusinessObjects
         {
             base.AfterConstruction();
             Priority = Priority.Normal;
+        }
+        [Action(ToolTip = "Postpone the task to the next day")]
+        public void Postpone()
+        {
+            if (DueDate == DateTime.MinValue) DueDate = DateTime.Now;
+            DueDate = DueDate + TimeSpan.FromDays(1);
         }
     }
     public enum Priority
