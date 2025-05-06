@@ -35,6 +35,7 @@
             this.AdditionalExportedTypes.Add(typeof(DevExpress.Xpo.PersistentBase));
             this.AdditionalExportedTypes.Add(typeof(DevExpress.Persistent.BaseImpl.Resource));
             this.AdditionalExportedTypes.Add(typeof(DevExpress.ExpressApp.SystemModule.Notifications.PostponeTime));
+            this.AdditionalExportedTypes.Add(typeof(DevExpress.Persistent.BaseImpl.Note));
             this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.SystemModule.SystemModule));
             this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Objects.BusinessClassLibraryCustomizationModule));
             this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.ValidationModule));
