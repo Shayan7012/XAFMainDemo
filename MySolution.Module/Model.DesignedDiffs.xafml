@@ -15,7 +15,10 @@
   </ActionDesign>
   <BOModel>
     <Class Name="MySolution.Module.BusinessObjects.Contact" ObjectCaptionFormat="{0:FullName} from the {0:Department}" />
+    <Class Name="MySolution.Module.BusinessObjects.Department" ImageName="BO_Department" />
+    <Class Name="MySolution.Module.BusinessObjects.Position" ImageName="BO_Position" />
   </BOModel>
+  <NavigationItems ShowImages="True" />
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
