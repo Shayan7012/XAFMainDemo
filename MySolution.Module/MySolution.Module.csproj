@@ -166,6 +166,11 @@
   <ItemGroup>
     <None Include="Welcome.html" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Employee.png" />
+    <EmbeddedResource Include="Images\Employee_Active.PNG" />
+    <EmbeddedResource Include="Images\Employee_Disabled.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
