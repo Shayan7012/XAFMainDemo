@@ -13,6 +13,9 @@
       </ActionContainer>
     </ActionToContainerMapping>
   </ActionDesign>
+  <BOModel>
+    <Class Name="MySolution.Module.BusinessObjects.Contact" ObjectCaptionFormat="{0:FullName} from the {0:Department}" />
+  </BOModel>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
