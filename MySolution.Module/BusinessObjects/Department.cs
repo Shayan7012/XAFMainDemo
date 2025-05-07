@@ -26,5 +26,10 @@ namespace MySolution.Module.BusinessObjects
         {
             get { return GetCollection<Contact>("Contacts"); }
         }
+        [Association("Departments-Positions")]
+        public XPCollection<Position> Positions
+        {
+            get { return GetCollection<Position>("Positions"); }
+        }
     }
 }

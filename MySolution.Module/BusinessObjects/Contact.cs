@@ -47,11 +47,18 @@ namespace MySolution.Module.BusinessObjects
             set { SetPropertyValue("Notes", ref notes, value); }
         }
         private Department department;
-        [Association("Department-Contacts")]
+        [Association("Department-Contacts", typeof(Department))]
+        [ImmediatePostData]
         public Department Department
         {
             get { return department; }
-            set { SetPropertyValue("Department", ref department, value); }
+            set
+            {
+                SetPropertyValue("Department", ref department, value);
+                if (IsLoading) return;
+                Position = null;
+                if (Manager != null && Manager.Department != value) Manager = null;
+            }
         }
         private Position position;
         public Position Position

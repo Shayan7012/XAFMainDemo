@@ -17,5 +17,10 @@ namespace MySolution.Module.BusinessObjects
             get { return title; }
             set { SetPropertyValue("Title", ref title, value); }
         }
+        [Association("Departments-Positions")]
+        public XPCollection<Department> Departments
+        {
+            get { return GetCollection<Department>("Departments"); }
+        }
     }
 }

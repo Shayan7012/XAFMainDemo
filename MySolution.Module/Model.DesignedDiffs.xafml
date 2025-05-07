@@ -14,7 +14,11 @@
     </ActionToContainerMapping>
   </ActionDesign>
   <BOModel>
-    <Class Name="MySolution.Module.BusinessObjects.Contact" ObjectCaptionFormat="{0:FullName} from the {0:Department}" ImageName="Employee" />
+    <Class Name="MySolution.Module.BusinessObjects.Contact" ObjectCaptionFormat="{0:FullName} from the {0:Department}" ImageName="Employee">
+      <OwnMembers>
+        <Member Name="Position" DataSourceProperty="Department.Positions" DataSourcePropertyIsNullMode="SelectAll" />
+      </OwnMembers>
+    </Class>
     <Class Name="MySolution.Module.BusinessObjects.Department" ImageName="BO_Department" />
     <Class Name="MySolution.Module.BusinessObjects.Payment">
       <OwnMembers>
