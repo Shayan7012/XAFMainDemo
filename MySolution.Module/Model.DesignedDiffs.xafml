@@ -16,6 +16,11 @@
   <BOModel>
     <Class Name="MySolution.Module.BusinessObjects.Contact" ObjectCaptionFormat="{0:FullName} from the {0:Department}" ImageName="Employee" />
     <Class Name="MySolution.Module.BusinessObjects.Department" ImageName="BO_Department" />
+    <Class Name="MySolution.Module.BusinessObjects.Payment">
+      <OwnMembers>
+        <Member Name="Rate" ImmediatePostData="True" />
+      </OwnMembers>
+    </Class>
     <Class Name="MySolution.Module.BusinessObjects.Position" ImageName="BO_Position" />
   </BOModel>
   <NavigationItems ShowImages="True" />
