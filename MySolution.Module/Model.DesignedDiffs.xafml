@@ -45,10 +45,11 @@
   <CreatableItems>
     <CreatableItem ClassName="DevExpress.Persistent.BaseImpl.Event" IsNewNode="True" />
   </CreatableItems>
-  <NavigationItems ShowImages="True">
+  <NavigationItems ShowImages="True" GenerateRelatedViewVariantsGroup="True">
     <Items>
       <Item Id="Default">
         <Items>
+          <Item Id="Contact_ListView" ViewId="Contact_ListView_Varied" />
           <Item Id="Note" ViewId="Note_ListView" IsNewNode="True" />
         </Items>
       </Item>
@@ -150,6 +151,36 @@
         <Filter Id="Developers" Caption="Developers" Criteria="Position.Title = 'Developer'" IsNewNode="True" />
         <Filter Id="Development Department Contacts" Caption="Development Department Contacts" Criteria="[Department.Title] = 'Development Department'" IsNewNode="True" />
       </Filters>
+    </ListView>
+    <ListView Id="Contact_ListView_AllColumns" ClassName="MySolution.Module.BusinessObjects.Contact" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Address1" PropertyName="Address1" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Address2" PropertyName="Address2" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Birthday" PropertyName="Birthday" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="DisplayName" PropertyName="DisplayName" Index="-1" Width="400" IsNewNode="True" />
+        <ColumnInfo Id="Email" PropertyName="Email" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="FirstName" PropertyName="FirstName" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="LastName" PropertyName="LastName" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="MiddleName" PropertyName="MiddleName" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Notes" PropertyName="Notes" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Photo" PropertyName="Photo" Index="-1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="FullName" PropertyName="FullName" Index="0" Width="400" SortIndex="0" SortOrder="Ascending" IsNewNode="True" />
+        <ColumnInfo Id="WebPageAddress" PropertyName="WebPageAddress" Index="1" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="NickName" PropertyName="NickName" Index="2" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="SpouseName" PropertyName="SpouseName" Index="3" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="TitleOfCourtesy" PropertyName="TitleOfCourtesy" Index="4" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Anniversary" PropertyName="Anniversary" Index="5" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Index="6" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Position" PropertyName="Position" Index="7" Width="70" IsNewNode="True" />
+        <ColumnInfo Id="Manager" PropertyName="Manager" Index="8" Width="70" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Contact_ListView_Varied" ClassName="MySolution.Module.BusinessObjects.Contact" IsNewNode="True">
+      <Variants IsNewNode="True">
+        <Variant Id="All columns" ViewID="Contact_ListView_AllColumns" Caption="All columns" IsNewNode="True" />
+        <Variant Id="Few columns" ViewID="Contact_ListView" Caption="Few columns" IsNewNode="True" />
+      </Variants>
     </ListView>
     <ListView Id="DemoTask_ListView" AllowEdit="True" NewItemRowPosition="Bottom" PreviewColumnName="Description" />
     <ListView Id="Department_ListView" MasterDetailMode="ListViewAndDetailView" />

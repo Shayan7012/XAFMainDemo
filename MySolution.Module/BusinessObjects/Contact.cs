@@ -2,6 +2,7 @@
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using System;
+using DevExpress.ExpressApp;
 
 namespace MySolution.Module.BusinessObjects
 {
@@ -78,6 +79,16 @@ namespace MySolution.Module.BusinessObjects
         {
             get { return manager; }
             set { SetPropertyValue("Manager", ref manager, value); }
+        }
+        private XPCollection<AuditDataItemPersistent> changeHistory;
+        [CollectionOperationSet(AllowAdd = false, AllowRemove = false)]
+        public XPCollection<AuditDataItemPersistent> ChangeHistory
+        {
+            get
+            {
+                if (changeHistory == null) changeHistory = AuditedObjectWeakReference.GetAuditTrail(Session, this);
+                return changeHistory;
+            }
         }
     }
     public enum TitleOfCourtesy { Dr, Miss, Mr, Mrs, Ms };
