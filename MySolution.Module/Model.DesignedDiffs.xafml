@@ -67,47 +67,51 @@
   </Validation>
   <Views>
     <DetailView Id="Contact_DetailView">
+      <Items>
+        <PropertyEditor Id="Department.Office" PropertyName="Department.Office" IsNewNode="True" />
+      </Items>
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="36.607142857142854">
-            <LayoutGroup Id="Person" RelativeSize="39.756097560975611" Index="0">
-              <LayoutGroup Id="Person_col1" RelativeSize="49.950149551345959">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="38.928571428571431">
+            <LayoutGroup Id="Person" RelativeSize="37.38532110091743" Index="0">
+              <LayoutGroup Id="Person_col1" RelativeSize="49.850448654037884">
                 <LayoutItem Id="FirstName" Index="0" RelativeSize="29.032258064516128" />
                 <LayoutItem Id="LastName" Index="1" RelativeSize="20.967741935483872" />
                 <LayoutItem Id="DisplayName" ViewItem="DisplayName" Index="2" RelativeSize="20.967741935483872" IsNewNode="True" />
                 <LayoutItem Id="MiddleName" Index="3" RelativeSize="29.032258064516128" />
               </LayoutGroup>
-              <LayoutGroup Id="Person_col2" RelativeSize="50.049850448654041">
+              <LayoutGroup Id="Person_col2" RelativeSize="50.149551345962116">
                 <LayoutItem Id="Birthday" RelativeSize="29.032258064516128" />
                 <LayoutItem Id="FullName" RelativeSize="20.967741935483872" />
                 <LayoutItem Id="Email" RelativeSize="50" />
               </LayoutGroup>
             </LayoutGroup>
-            <LayoutGroup Id="Contact" RelativeSize="37.31707317073171" Index="1">
-              <LayoutGroup Id="Contact_col1" RelativeSize="49.950149551345959">
-                <LayoutItem Id="WebPageAddress" RelativeSize="29.032258064516128" />
-                <LayoutItem Id="NickName" RelativeSize="20.967741935483872" />
-                <LayoutItem Id="SpouseName" RelativeSize="20.967741935483872" />
-                <LayoutItem Id="TitleOfCourtesy" RelativeSize="29.032258064516128" />
+            <LayoutGroup Id="Contact" RelativeSize="41.055045871559635" Index="1">
+              <LayoutGroup Id="Contact_col1" RelativeSize="49.850448654037884">
+                <LayoutItem Id="WebPageAddress" RelativeSize="24" />
+                <LayoutItem Id="NickName" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="SpouseName" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="TitleOfCourtesy" ViewItem="TitleOfCourtesy" Index="3" RelativeSize="17.333333333333332" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="Department.Office" ViewItem="Department.Office" Index="4" RelativeSize="24" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="Contact_col2" RelativeSize="50.049850448654041">
-                <LayoutItem Id="Anniversary" RelativeSize="29.032258064516128" />
-                <LayoutItem Id="Department" RelativeSize="20.967741935483872" />
-                <LayoutItem Id="Position" RelativeSize="20.967741935483872" />
-                <LayoutItem Id="Manager" RelativeSize="29.032258064516128" />
+              <LayoutGroup Id="Contact_col2" RelativeSize="50.149551345962116">
+                <LayoutItem Id="Anniversary" RelativeSize="24" />
+                <LayoutItem Id="Department" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Position" RelativeSize="17.333333333333332" />
+                <LayoutItem Id="Manager" RelativeSize="41.333333333333336" />
               </LayoutGroup>
             </LayoutGroup>
-            <LayoutGroup Id="Party" RelativeSize="22.926829268292682">
+            <LayoutGroup Id="Party" RelativeSize="21.559633027522935" Index="2">
               <LayoutItem Id="Photo" RelativeSize="36.170212765957444" />
               <LayoutItem Id="Address1" RelativeSize="27.659574468085108" />
               <LayoutItem Id="Address2" RelativeSize="36.170212765957444" />
               <LayoutItem Id="DisplayName" Removed="True" />
             </LayoutGroup>
           </LayoutGroup>
-          <LayoutGroup Id="SizeableEditors" RelativeSize="26.25">
+          <LayoutGroup Id="SizeableEditors" RelativeSize="26.517857142857142">
             <LayoutItem Id="Notes" RelativeSize="100" />
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="37.142857142857146" Index="2">
+          <TabbedGroup Id="Tabs" RelativeSize="34.553571428571431" Index="2">
             <LayoutGroup Id="Tasks" RelativeSize="100" Direction="Vertical">
               <LayoutItem Id="Tasks" ViewItem="Tasks" Index="0" RelativeSize="100" IsNewNode="True" Removed="True" />
             </LayoutGroup>
@@ -118,5 +122,36 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="Contact_ListView" Filter="Position.Title != 'Manager'" IsGroupPanelVisible="False" FilterEnabled="True">
+      <Columns>
+        <ColumnInfo Id="Anniversary" Index="-1" />
+        <ColumnInfo Id="Manager" Index="-1" />
+        <ColumnInfo Id="NickName" Index="-1" />
+        <ColumnInfo Id="SpouseName" Index="-1" />
+        <ColumnInfo Id="TitleOfCourtesy" Index="-1" />
+        <ColumnInfo Id="WebPageAddress" SortIndex="0" SortOrder="Ascending" Index="-1" />
+        <ColumnInfo Id="FullName" SortIndex="-1" SortOrder="None" Width="304" />
+        <ColumnInfo Id="Department" Index="1" Width="200" />
+        <ColumnInfo Id="Position" Index="2" Width="180" SortOrder="None" GroupIndex="-1" />
+        <ColumnInfo Id="Email" Index="3" Width="301" />
+        <ColumnInfo Id="Address1" Removed="True" />
+        <ColumnInfo Id="Address2" Removed="True" />
+        <ColumnInfo Id="Birthday" Removed="True" />
+        <ColumnInfo Id="DisplayName" Removed="True" />
+        <ColumnInfo Id="FirstName" Removed="True" />
+        <ColumnInfo Id="LastName" Removed="True" />
+        <ColumnInfo Id="MiddleName" Removed="True" />
+        <ColumnInfo Id="Notes" Removed="True" />
+        <ColumnInfo Id="Oid" Removed="True" />
+        <ColumnInfo Id="Photo" Removed="True" />
+      </Columns>
+      <Filters CurrentFilterId="Developers">
+        <Filter Id="All Contacts" Caption="All Contacts" IsNewNode="True" />
+        <Filter Id="Developers" Caption="Developers" Criteria="Position.Title = 'Developer'" IsNewNode="True" />
+        <Filter Id="Development Department Contacts" Caption="Development Department Contacts" Criteria="[Department.Title] = 'Development Department'" IsNewNode="True" />
+      </Filters>
+    </ListView>
+    <ListView Id="DemoTask_ListView" AllowEdit="True" NewItemRowPosition="Bottom" PreviewColumnName="Description" />
+    <ListView Id="Department_ListView" MasterDetailMode="ListViewAndDetailView" />
   </Views>
 </Application>
